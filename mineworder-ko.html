@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head> 
+<html lang="en">
+<head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="robots" content="noindex, nofollow">
-<title>WordMine - 단어 찾기 퍼즐 | Soosooland</title>
+<title>마인워더 - 워드 서치 퍼즐 2인 대결| Soosooland</title>
 <script>
   if (window.top !== window.self) {
     window.top.location = "https://soosooland.com";
   }
-    if (window.innerWidth < 580) {
-    window.location.href = 'https://soosooland.com/wordminemini/';
+  if (window.innerWidth < 560) {
+    window.location.href = 'https://soosooland.com/minewardermini/';
   }
   console.log("© 2025-2026 Soosooland by 한수수. All rights reserved.");
   console.log("https://soosooland.com");
-  console.log("🎮 Wordmine | Born: 2025-08-13");
-</script> 
-   <!-- Google tag (gtag.js) -->
+  console.log("🎮 MineWarder | Born: 2026-09-04");
+</script>
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4YZHC1G9FN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -40,10 +40,10 @@ body {
     margin: 0;
     padding: 10px;
   }
-.back-button { position: fixed; top: max(48px, env(safe-area-inset-top) + 20px); left: 22px; width: 44px; height: 44px; padding: 0; font-size: 1.8em; font-weight: bold; 
-  background-color: #CFF9FF;
+.back-button { position: fixed; top: max(48px, env(safe-area-inset-top) + 20px); left: 22px; width: 44px; height: 44px; padding: 0; font-size: 1.8em; font-weight: bold;
+ background-color: #CFF9FF;
  color: #145454;
-border-radius: 12px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;z-index: 100;}
+ border-radius: 12px; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;z-index: 100;}
 
 .back-button:hover { background-color: #1baf8f; color: #fff; }
   h1 { font-size: 3em; margin: 20px 0 10px; color: #EF0; }
@@ -67,29 +67,27 @@ border-radius: 12px; border: none; cursor: pointer; display: flex; align-items: 
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.7em;
+    font-size: 1.6em;
     cursor: pointer;
     user-select: none;
     border-radius: 4px;
     font-weight: bold;
   }
   .revealed { background-color: #fff; font-size: 1.6em; }
-  /* 숫자 색상 통일 */
   .revealed.num { color: #6FAFB8; }
   .revealed.num-0 { background-color: #caed9f; }
   .revealed.clover {
   background-color: #fff;
-  font-size: 1.7em;
+  font-size: 1.6em;
 }
 .revealed.clover span {
   font-family: "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
 }
 .revealed.daisy {
   background-color: #fff4e0;
-  font-size: 1.7em;
+  font-size: 1.6em;
 }
-
-  #npcScore, #userScore {
+#greenScore, #pinkScore {
     background: #209087;
     color: #fff;
     width: 180px;
@@ -99,22 +97,24 @@ border-radius: 12px; border: none; cursor: pointer; display: flex; align-items: 
     border-radius: 12px;
     flex-shrink: 0;
   }
-  #npcScore h2, #userScore h2 { font-size: 1.2em; margin-top: 0; margin-bottom: 10px; }
-  #npcScore p, #userScore p { font-size: 1.2em; margin: 5px 0; text-align: left; }
+  #greenScore h2, #pinkScore h2 { font-size: 1.2em; margin-top: 0; margin-bottom: 10px; }
+  #greenScore p, #pinkScore p { font-size: 1.2em; margin: 5px 0; text-align: left; }
   .score-container { display: none; }
-  .word-owned-user { background-color: #a0fab5; }
-  .word-owned-npc { background-color: #f7cdf7; }
-  #currentTurn { font-size: 20px; margin: 10px; color: #FFE680; font-weight: bold; }
+  .word-owned-green { background-color: #a0fab5; }
+  .word-owned-pink { background-color: #f7cdf7; }
+  #currentTurn { font-size: 20px; margin: 10px; font-weight: bold; }
+  #currentTurn.turn-green { color: #a0fab5; }
+  #currentTurn.turn-pink { color: #f7cdf7; }
   #game {
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(10, 1fr);
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
     grid-gap: 4px;
     padding: 10px;
     background-color: #0E756D;
     border-radius: 12px;
-    width: 500px;
-    height: 500px;
+    width: 480px;
+    height: 480px;
     box-sizing: border-box;
     flex-shrink: 0;
   }
@@ -133,16 +133,14 @@ footer { text-align: center; color: #c3dbdb; font-size: 0.8rem; margin-top: 30px
   @media (max-width: 960px) {
     h1 { font-size: 2.5em; margin: 15px 0 5px; }
     p { font-size: 0.9em; margin: 0 10px 15px; }
-    #difficultyScreen h2 { font-size: 1.5em; }
-    .difficulty-btn { font-size: 1.1em; padding: 15px 30px; }
     .container { flex-direction: column; align-items: center; width: 100%; gap: 0; }
-    #game { width: 500px; height: auto; aspect-ratio: 1 / 1; grid-gap: 3px; }
-    #npcScore, #userScore { display: none !important; }
+    #game { width:480px; height: auto; aspect-ratio: 1 / 1; grid-gap: 3px; }
+    #greenScore, #pinkScore { display: none !important; }
     .score-container {
       display: flex !important;
       flex-direction: column;
       gap: 10px;
-      width: 500px;
+      width:480px;
       margin-top: 15px;
     }
     .score-container > div {
@@ -155,7 +153,7 @@ footer { text-align: center; color: #c3dbdb; font-size: 0.8rem; margin-top: 30px
     }
     .score-container h2 { font-size: 1em; margin: 0 0 8px; }
     .score-container p { font-size: 0.95em; display: inline-block; margin: 3px 6px; color: #fff; text-align: left; }
-    .btn-container { margin: 15px 0; width: 95%; max-width: 500px; justify-content: center; }
+    .btn-container { margin: 15px 0; width: 95%; max-width: 480px; justify-content: center; }
     button { font-size: 1em; padding: 12px 25px; flex: 1; max-width: 150px; }
   }
   @media (max-width: 480px) {
@@ -166,26 +164,28 @@ footer { text-align: center; color: #c3dbdb; font-size: 0.8rem; margin-top: 30px
 </head>
 
 <body>
-<button class="back-button" onclick="location.href='https://soosooland.com/wordmine/index.html'">←</button>
-<h1 id="game-title">워드마인</h1>
-<p id="game-desc">주변 숫자 힌트를 보고 한글 단어를 찾아보세요!</p>
+<button class="back-button" onclick="location.href='https://soosooland.com/mineworder/index.html'">←</button>
+<div class="game-header">
+  <h1 id="game-title">게임 제목</h1>
+  <p id="game-desc">게임 설명</p>
+</div>
 
 <div id="gameScreen">
 <div id="currentTurn"></div>
 
 <div class="container">
-  <div id="npcScore"><h2>컴퓨터:</h2></div>
+  <div id="greenScore"><h2>GREEN:</h2></div>
   <div id="game"></div>
-  <div id="userScore"><h2>사용자:</h2></div>
+  <div id="pinkScore"><h2>PINK:</h2></div>
 </div>
 
 <div class="score-container">
-  <div id="npcScore-mobile"><h2>컴퓨터:</h2></div>
-  <div id="userScore-mobile"><h2>사용자:</h2></div>
+  <div id="greenScore-mobile"><h2>GREEN:</h2></div>
+  <div id="pinkScore-mobile"><h2>PINK:</h2></div>
 </div>
 
 <div class="btn-container">
-  <button id="retryBtn">↻ 다시 시작</button>
+  <button id="retryBtn">↻Try Again</button>
 </div>
 </div>
 <footer>
@@ -193,64 +193,38 @@ footer { text-align: center; color: #c3dbdb; font-size: 0.8rem; margin-top: 30px
 </footer>
 
 <script>
-const gridSize = 10;
+const gridSize = 12;
 const totalCells = gridSize * gridSize;
-let npcDifficulty = 'hard';
-
-function setDifficulty(level) {
-  npcDifficulty = level;
-  document.querySelectorAll('.difficulty-btn').forEach(btn => btn.classList.remove('active'));
-  event.target.classList.add('active');
-}
 
 let board, revealed, wordMap, foundWords, currentPlayer, foundBy, words, usedIndexes;
-let zeroDecoration = {}; 
+let zeroDecoration = {};
 let resultShown = false;
-let npcTimeoutId = null;
 
 const gameEl = document.getElementById('game');
-const userScoreEl = document.getElementById('userScore');
-const npcScoreEl = document.getElementById('npcScore');
-const userScoreMobileEl = document.getElementById('userScore-mobile');
-const npcScoreMobileEl = document.getElementById('npcScore-mobile');
+const greenScoreEl = document.getElementById('greenScore');
+const pinkScoreEl = document.getElementById('pinkScore');
+const greenScoreMobileEl = document.getElementById('greenScore-mobile');
+const pinkScoreMobileEl = document.getElementById('pinkScore-mobile');
 const retryBtn = document.getElementById('retryBtn');
 const currentTurnEl = document.getElementById('currentTurn');
 
-function startGame(difficulty) {
-  npcDifficulty = difficulty;
+function startGame() {
   init();
-}
-
-function getAdjacentCells(index) {
-  const x = index % gridSize, y = Math.floor(index / gridSize);
-  const adjacent = [];
-  for (let dy = -1; dy <= 1; dy++) {
-    for (let dx = -1; dx <= 1; dx++) {
-      if (dx === 0 && dy === 0) continue;
-      const nx = x + dx, ny = y + dy;
-      if (nx >= 0 && nx < gridSize && ny >= 0 && ny < gridSize) {
-        const nIdx = ny * gridSize + nx;
-        if (!revealed[nIdx]) adjacent.push(nIdx);
-      }
-    }
-  }
-  return adjacent;
 }
 
 window.onload = () => {
   const urlParams = new URLSearchParams(window.location.search);
   const poolFile = urlParams.get('pool');
   if (!poolFile) {
-    words = ["계륵","각골난망", "각양각색", "각인각색", "각자도생", "각주구검", "간난신고", "간담상조", "감개무량", "감언이설", "감지덕지", "갑론을박","가화만사성"];
+    words = ['CAT', 'AGE', 'AREA', 'AWAY','ALSO','BABY','ABOUT', 'ADULT', 'AGAIN','AFTER','ACROSS','ACTION','ACTRESS','ACTIVITY','AFTERNOON'];
     init();
     return;
   }
 
-  // 워드마인 전용 워드풀 (게임 이름이 JSON 안에 포함되어 있음)
   fetch('https://soosooland.com/wordmine/wordpools/' + poolFile + '.json')
     .then(res => res.json())
     .then(data => {
-      document.getElementById('game-title').textContent = data.title || '워드마인';
+      document.getElementById('game-title').textContent = data.title || '마인워더';
       const rawText = data.description || '게임 설명';
       const htmlText = rawText.replace(/\n/g, '<br>');
       document.getElementById('game-desc').innerHTML = htmlText;
@@ -286,13 +260,11 @@ function init() {
   revealed = Array(totalCells).fill(false);
   wordMap = {};
   foundWords = new Set();
-  foundBy = { user: [], npc: [] };
-  currentPlayer = 'user';
+  foundBy = { green: [], pink: [] };
+  currentPlayer = 'green';
   usedIndexes = new Set();
-  zeroDecoration = {}; // ★ 추가
+  zeroDecoration = {};
   resultShown = false;
- 
-  if (npcTimeoutId) { clearTimeout(npcTimeoutId); npcTimeoutId = null; }
 
   createGrid();
 
@@ -316,7 +288,7 @@ function createGrid() {
   for (let i = 0; i < totalCells; i++) {
     const cell = document.createElement('div');
     cell.className = 'cell';
-    cell.onclick = () => { if (!resultShown && currentPlayer === 'user') handleClick(i); };
+    cell.onclick = () => { if (!resultShown) handleClick(i); };
     gameEl.appendChild(cell);
   }
 }
@@ -333,10 +305,9 @@ function canPlaceWord(word, x, y, dx, dy) {
 }
 
 function getZone(x, y) {
-  // 10x10을 2x2 존(각 5x5)으로 분할
-  const zoneX = x < 5 ? 0 : 1;
-  const zoneY = y < 5 ? 0 : 1;
-  return zoneY * 2 + zoneX; // 0,1,2,3
+  const zoneX = x < 6 ? 0 : 1;
+  const zoneY = y < 6 ? 0 : 1;
+  return zoneY * 2 + zoneX;
 }
 
 let zoneCounts = [0, 0, 0, 0];
@@ -348,7 +319,7 @@ function placeAllWordsWithVariety() {
     board = Array(totalCells).fill(null);
     usedIndexes.clear();
     wordMap = {};
-    zoneCounts = [0, 0, 0, 0]; // ★ 리셋
+    zoneCounts = [0, 0, 0, 0];
     let allPlaced = true;
     const sortedWords = [...words].sort((a, b) => b.length - a.length);
     for (let word of sortedWords) {
@@ -363,8 +334,6 @@ function placeAllWordsWithVariety() {
 function placeWord(word) {
   const directions = [{ x: 1, y: 0 }, { x: 0, y: 1 }, { x: 1, y: 1 }];
   const shuffledDirections = directions.sort(() => Math.random() - 0.5);
-
-  // 존을 채워진 개수 오름차순으로 정렬해서, 적게 채워진 곳부터 시도
   const zoneOrder = [0, 1, 2, 3].sort((a, b) => zoneCounts[a] - zoneCounts[b]);
 
   for (let dir of shuffledDirections) {
@@ -375,7 +344,7 @@ function placeWord(word) {
         const y = (startY + i) % gridSize;
         for (let j = 0; j < gridSize; j++) {
           const x = (startX + j) % gridSize;
-          if (getZone(x, y) !== zone) continue; // 해당 존 안에서만 시작점 찾기
+          if (getZone(x, y) !== zone) continue;
           if (canPlaceWord(word, x, y, dir.x, dir.y)) {
             let positions = [];
             for (let i = 0; i < word.length; i++) {
@@ -385,7 +354,7 @@ function placeWord(word) {
               positions.push(idx);
             }
             wordMap[word] = { positions: positions, direction: [dir.x, dir.y] };
-            zoneCounts[getZone(x, y)]++; // ★ 카운트 증가
+            zoneCounts[getZone(x, y)]++;
             return true;
           }
         }
@@ -405,31 +374,13 @@ function checkDirectionVariety() {
   return directionCount['1,0'] > 0 && directionCount['0,1'] > 0 && directionCount['1,1'] > 0;
 }
 
-function placeAllWordsWithVariety() {
-  let attempts = 0;
-  const maxAttempts = 10;
-  do {
-    board = Array(totalCells).fill(null);
-    usedIndexes.clear();
-    wordMap = {};
-    let allPlaced = true;
-    const sortedWords = [...words].sort((a, b) => b.length - a.length);
-    for (let word of sortedWords) {
-      if (!placeWord(word)) { allPlaced = false; break; }
-    }
-    if (allPlaced && checkDirectionVariety()) return true;
-    attempts++;
-  } while (attempts < maxAttempts);
-  return false;
-}
-
 function fillEmptyCells() {
   for (let j = 0; j < totalCells; j++) {
     if (usedIndexes.has(j)) continue;
     const num = countAdjacentLetters(j);
     board[j] = num;
     if (num === 0) {
-      zeroDecoration[j] = Math.random() < 0.5 ? 'clover' : 'daisy'; // ★ 50:50 랜덤
+      zeroDecoration[j] = Math.random() < 0.5 ? 'clover' : 'daisy';
     }
   }
 }
@@ -460,7 +411,6 @@ function reveal(index) {
     const num = board[index];
 
     if (num === 0) {
-      // ★ 0인 칸 → 클로버 또는 데이지로 표시
       const deco = zeroDecoration[index];
       if (deco === 'clover') {
         cell.innerHTML = '<span>🍀</span>';
@@ -475,7 +425,6 @@ function reveal(index) {
         cell.classList.add('daisy');
       }
 
-      // 기존 0-캐스케이드 로직 그대로 유지
       const x = index % gridSize, y = Math.floor(index / gridSize);
       for (let dy = -1; dy <= 1; dy++) {
         for (let dx = -1; dx <= 1; dx++) {
@@ -497,122 +446,28 @@ function reveal(index) {
 }
 
 function updateScore() {
-  const userHTML = `<h2>사용자:</h2>` + foundBy.user.map(w => `<p>${w}</p>`).join("");
-  const npcHTML = `<h2>컴퓨터:</h2>` + foundBy.npc.map(w => `<p>${w}</p>`).join("");
-  userScoreEl.innerHTML = userHTML;
-  npcScoreEl.innerHTML = npcHTML;
-  userScoreMobileEl.innerHTML = userHTML;
-  npcScoreMobileEl.innerHTML = npcHTML;
+  const greenHTML = `<h2>GREEN:</h2>` + foundBy.green.map(w => `<p>${w}</p>`).join("");
+  const pinkHTML = `<h2>PINK:</h2>` + foundBy.pink.map(w => `<p>${w}</p>`).join("");
+  greenScoreEl.innerHTML = greenHTML;
+  pinkScoreEl.innerHTML = pinkHTML;
+  greenScoreMobileEl.innerHTML = greenHTML;
+  pinkScoreMobileEl.innerHTML = pinkHTML;
 }
 
 function updateTurnDisplay() {
-  // 이미 결과가 표시된 경우 아무 것도 하지 않음
   if (resultShown) return;
-  const name = currentPlayer === 'user' ? '사용자' : 'NPC';
-  let suffix = '';
-  currentTurnEl.textContent = `${name}의 차례입니다.`;
+  const name = currentPlayer === 'green' ? 'GREEN' : 'PINK';
+  currentTurnEl.textContent = `It is ${name}'s turn.`;
+  currentTurnEl.className = currentPlayer === 'green' ? 'turn-green' : 'turn-pink';
 }
 
 function switchTurn() {
-  // 턴을 사용자와 NPC 사이에서 전환
-  currentPlayer = currentPlayer === 'user' ? 'npc' : 'user';
+  currentPlayer = currentPlayer === 'green' ? 'pink' : 'green';
   updateTurnDisplay();
-  if (currentPlayer === 'npc' && !resultShown) {
-    // NPC 차례가 되면 1초 후 NPC가 수를 둠
-    npcTimeoutId = setTimeout(() => { npcMove(); }, 1000);
-  }
 }
 
-function isNumberSatisfied(idx) {
-  // idx는 이미 열린 숫자칸이어야 함
-  const num = board[idx];
-  if (typeof num !== 'number') return false;
-
-  const x = idx % gridSize, y = Math.floor(idx / gridSize);
-  let foundLetters = 0;
-  for (let dy = -1; dy <= 1; dy++) {
-    for (let dx = -1; dx <= 1; dx++) {
-      if (dx === 0 && dy === 0) continue;
-      const nx = x + dx, ny = y + dy;
-      if (nx >= 0 && nx < gridSize && ny >= 0 && ny < gridSize) {
-        const nIdx = ny * gridSize + nx;
-        if (revealed[nIdx] && usedIndexes.has(nIdx)) foundLetters++;
-      }
-    }
-  }
-  return foundLetters >= num;
-}
-function getWordAtPosition(idx) {
-  for (let word in wordMap) {
-    if (wordMap[word].positions.includes(idx)) return word;
-  }
-  return null;
-}
-
-function npcMove() {
-  if (resultShown) return;
-  const availableCells = [];
-  for (let i = 0; i < totalCells; i++) if (!revealed[i]) availableCells.push(i);
-  if (availableCells.length === 0) return;
-
-  let selectedCell = pickHardMove();
-
-  if (selectedCell === undefined || selectedCell === null || revealed[selectedCell]) {
-    selectedCell = availableCells[Math.floor(Math.random() * availableCells.length)];
-  }
-
-  handleClick(selectedCell, true);
-}
-
-function pickHardMove() {
-  const availableCells = [];
-  for (let i = 0; i < totalCells; i++) if (!revealed[i]) availableCells.push(i);
-  if (availableCells.length === 0) return null;
-
-  const MIN_LENGTH_FOR_NPC = 3; // ★ 추가 - 2글자 단어는 확정 로직에서 제외
-
-  // 1순위: 한 글자만 남은 단어 → 그 글자 무조건 클릭 (단, 3글자 이상만)
-  let oneLeft = [];
-  for (let word in wordMap) {
-    if (foundWords.has(word)) continue;
-    if (word.length < MIN_LENGTH_FOR_NPC) continue; // ★ 추가
-    const positions = wordMap[word].positions;
-    const unrevealed = positions.filter(i => !revealed[i]);
-    if (unrevealed.length === 1) {
-      oneLeft.push(unrevealed[0]);
-    }
-  }
-  oneLeft = [...new Set(oneLeft)];
-  if (oneLeft.length > 0) {
-    return oneLeft[Math.floor(Math.random() * oneLeft.length)];
-  }
-
-  // 2순위: 숫자가 큰 칸 주변 (satisfied 칸 제외)
-  let numberedRevealed = [];
-  for (let i = 0; i < totalCells; i++) {
-    if (revealed[i] && !usedIndexes.has(i) && typeof board[i] === 'number' && board[i] > 0) {
-      if (!isNumberSatisfied(i)) {
-        numberedRevealed.push({ idx: i, value: board[i] });
-      }
-    }
-  }
-  numberedRevealed.sort((a, b) => b.value - a.value);
-
-  for (let entry of numberedRevealed) {
-    const candidates = getAdjacentCells(entry.idx);
-    if (candidates.length > 0) {
-      return candidates[Math.floor(Math.random() * candidates.length)];
-    }
-  }
-
-  // 3순위: 랜덤
-  return availableCells[Math.floor(Math.random() * availableCells.length)];
-}
-
-function handleClick(index, isnpcMove = false) {
+function handleClick(index) {
   if (revealed[index] || resultShown) return;
-  if (currentPlayer === 'npc' && !isnpcMove) return;
-  if (currentPlayer === 'user' && isnpcMove) return;
 
   reveal(index);
   checkWords();
@@ -630,7 +485,7 @@ function checkWords() {
       foundBy[currentPlayer].push(word);
       pos.forEach(i => {
         const cell = gameEl.children[i];
-        cell.classList.add(currentPlayer === 'user' ? 'word-owned-user' : 'word-owned-npc');
+        cell.classList.add(currentPlayer === 'green' ? 'word-owned-green' : 'word-owned-pink');
       });
       updateScore();
     }
@@ -641,23 +496,23 @@ function checkGameEnd() {
   const totalWords = Object.keys(wordMap).length;
   if (foundWords.size >= totalWords && totalWords > 0) {
     resultShown = true;
-    if (npcTimeoutId) { clearTimeout(npcTimeoutId); npcTimeoutId = null; }
-    const userWords = foundBy.user.length;
-    const npcWords = foundBy.npc.length;
+    const greenWords = foundBy.green.length;
+    const pinkWords = foundBy.pink.length;
 
     let winner;
-    if (userWords > npcWords) {
-      winner = '사용자가 이겼습니다!';
-    } else if (npcWords > userWords) {
-      winner = 'NPC가 이겼습니다!';
+    if (greenWords > pinkWords) {
+      winner = 'Green Wins!';
+    } else if (pinkWords > greenWords) {
+      winner = 'Pink Wins!';
     } else {
-      winner = "무승부입니다!";
+      winner = "It's a Draw!";
     }
-    currentTurnEl.textContent = `게임 종료! ${winner} (사용자: ${userWords} / NPC: ${npcWords})`;
+    currentTurnEl.textContent = `Game Over! ${winner} (Green: ${greenWords} / Pink: ${pinkWords})`;
+    currentTurnEl.className = '';
   }
 }
 
-retryBtn.onclick = () => { startGame(npcDifficulty); };
+retryBtn.onclick = () => { startGame(); };
 </script>
 
 </body>
