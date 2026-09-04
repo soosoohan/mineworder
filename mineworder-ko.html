@@ -456,13 +456,13 @@ function updateScore() {
 
 function updateTurnDisplay() {
   if (resultShown) return;
-  const name = currentPlayer === '초록' ? '초록' : '분홍';
-  currentTurnEl.textContent = `It is ${name}'s turn.`;
+  const name = currentPlayer === 'green' ? '초록' : '분홍';
+  currentTurnEl.textContent = `${name} 차례입니다.`;
   currentTurnEl.className = currentPlayer === 'green' ? 'turn-green' : 'turn-pink';
 }
 
 function switchTurn() {
-  currentPlayer = currentPlayer === '초록' ? '분홍' : '초록';
+  currentPlayer = currentPlayer === 'green' ? 'pink' : 'green';
   updateTurnDisplay();
 }
 
@@ -501,14 +501,14 @@ function checkGameEnd() {
 
     let winner;
     if (greenWords > pinkWords) {
-      winner = 'Green Wins!';
-    } else if (pinkWords > greenWords) {
-      winner = 'Pink Wins!';
-    } else {
-      winner = "It's a Draw!";
-    }
-    currentTurnEl.textContent = `Game Over! ${winner} (Green: ${greenWords} / Pink: ${pinkWords})`;
-    currentTurnEl.className = '';
+  winner = '초록 승리!';
+} else if (pinkWords > greenWords) {
+  winner = '분홍 승리!';
+} else {
+  winner = '무승부!';
+}
+  currentTurnEl.textContent = `게임 종료! ${winner} (초록: ${greenWords} / 분홍: ${pinkWords})`;
+  currentTurnEl.className = '';
   }
 }
 
