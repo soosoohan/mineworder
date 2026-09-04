@@ -36,28 +36,28 @@
 <meta property="og:description" content="A game where you find hidden words in a medium sized grid using number hints. 중간 크기 격자 속에 숨은 단어를 숫자 힌트로 찾는 게임">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://soosooland.com/mineworder/">
-<meta property="og:image" content="https://soosooland.com/wordmine/wordmine.png">
+<meta property="og:image" content="https://soosooland.com/mineworder/mineworder.png">
 <meta property="og:site_name" content="Soosooland">
 
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="워드마인(WordMine)">
+<meta name="twitter:title" content="마인워더(Mineworder)">
 <meta name="twitter:description" content="A game where you find hidden words in a grid using number hints. 격자 속에 숨은 단어를 숫자 힌트로 찾는 게임">
-<meta name="twitter:image" content="https://soosooland.com/wordmine/wordmine.png">
+<meta name="twitter:image" content="https://soosooland.com/mineworder/mineworder.png">
   
-<link rel="canonical" href="https://soosooland.com/wordmine/">
+<link rel="canonical" href="https://soosooland.com/mineworder/">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:locale:alternate" content="en_US">  
-<link rel="alternate" hreflang="en" href="https://soosooland.com/wordmine/">
-<link rel="alternate" hreflang="ko" href="https://soosooland.com/wordmine/">
-<link rel="alternate" hreflang="x-default" href="https://soosooland.com/wordmine/">
+<link rel="alternate" hreflang="en" href="https://soosooland.com/mineworder/">
+<link rel="alternate" hreflang="ko" href="https://soosooland.com/mineworder/">
+<link rel="alternate" hreflang="x-default" href="https://soosooland.com/mineworder/">
 <link rel="stylesheet" href="https://soosooland.com/css/protection.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "VideoGame",
-  "name": "WordMine",
+  "name": "Mineworder",
   "description": "A game where you find hidden words in a grid using number hints.",
-  "url": "https://soosooland.com/wordmine/",
+  "url": "https://soosooland.com/mineworder/",
   "genre": ["Puzzle", "Word"],
   "gamePlatform": "Web browser",
   "playMode": "SinglePlayer",
@@ -239,14 +239,14 @@ display: none;
   <button class="language-button" onclick="toggleLanguage('en')">EN</button>
 </div>
 
-<h1 class="lang-ko">워드마인</h1>
-<h1 class="lang-en">Wordmine</h1>
+<h1 class="lang-ko">마인워더</h1>
+<h1 class="lang-en">MineWorder</h1>
   <div class="description">
   <div id="korean-description" class="lang-ko">
     이 게임은 지뢰찾기를 개조한 워드서치 게임입니다.<br>
     격자가 영어는 가로12*세로12이고,  한글은 가로10*세로10가  있는 중간사이즈입니다.<br>
     단어는 가로, 세로, 대각선 방향으로 숨겨져 있으며, 마지막 글자를 열면 해당 단어를 획득합니다.<br>
-    NPC보다 많은 단어를 찾으면 이깁니다.<br>
+    많은 단어를 찾으면 이깁니다.<br>
     격자에 적힌 숫자는 격자 주변에 있는 글자의 수입니다.<br>
     숫자 힌트를 이용해서 숨겨진 단어를 찾으세요.<br>
     아래에서 원하는 워드풀을 선택해 게임을 시작하세요.<br>
@@ -255,7 +255,7 @@ display: none;
     This is a word search with a minesweeper twist.<br>
     The grid is medium-sized: 12×12 for English and 10×10 for Korean.<br>
     Words are hidden horizontally, vertically, or diagonally, and you earn the word by revealing its final letter.<br>
-    Your goal is to find more words than the computer.<br>
+    Your goal is to find more words. <br>
     The numbers in the grid show how many letters are adjacent to that cell.<br>
     Look at the number hints and click the grid to find the words.<br>
     Choose a word pool below to begin the game.
@@ -333,7 +333,7 @@ function initLanguage() {
 }
 
 function startGame(poolName, isEnglish) {
-    const page = isEnglish ? 'wordmine-en.html' : 'wordmine-ko.html';
+    const page = isEnglish ? 'mineworder-en.html' : 'mineworder-ko.html';
     location.href = `${page}?pool=${poolName}`;
 }
 </script>
