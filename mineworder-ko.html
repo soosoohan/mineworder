@@ -221,7 +221,7 @@ window.onload = () => {
     return;
   }
 
-  fetch('https://soosooland.com/wordmine/wordpools/' + poolFile + '.json')
+  fetch('https://soosooland.com/mineworder/wordpools/' + poolFile + '.json')
     .then(res => res.json())
     .then(data => {
       document.getElementById('game-title').textContent = data.title || '마인워더';
@@ -417,7 +417,7 @@ function reveal(index) {
         cell.classList.add('clover');
       } else {
         const img = document.createElement('img');
-        img.src = 'https://soosooland.com/wordmine/daisy_64x64.png';
+        img.src = 'https://soosooland.com/mineworder/daisy_64x64.png';
         img.alt = '데이지';
         img.style.width = '24px';
         img.style.height = '24px';
