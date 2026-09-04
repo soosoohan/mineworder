@@ -3,13 +3,13 @@
 All games are registered copyrights. Unauthorized copying or redistribution is prohibited.  
 모든 게임은 저작권 등록된 창작물입니다. 무단 복제 및 배포를 금합니다.  
 تمام گیمز کاپی رائٹ محفوظ ہیں۔ غیر مجاز نقل ممنوع ہے۔
-## 👤🆚🤖  워드마인 (WordMine)
+## 👤🆚🤖  마인워더 (WordMine)
 
-Wordmine은 격자를 탐험하여 숨겨진 단어를 찾는 게임입니다!  
-Wordmine is a game where you explore a grid to find hidden words!   
+마인워더는 격자를 탐험하여 숨겨진 단어를 찾는 게임입니다!  
+mineWorder is a game where you explore a grid to find hidden words!   
 
-(“Wordmine”라는 이름은 “Word”와 “mine”의 조합입니다.)  
-(The name “Wordmine” is a combination of “Word” and “mine.”)
+(“Mineworder”라는 이름은 “mine”와 “worder”의 조합입니다.)  
+(The name “Mineworder” is a combination of “mine” and “worder”.)
 
 ### 🔎 게임 방법 / How to Play
 
@@ -18,7 +18,7 @@ Wordmine is a game where you explore a grid to find hidden words!
 - 이 게임은 지뢰찾기를 개조한 워드서치 게임입니다.  
 - 단어는 가로, 세로, 대각선 방향으로 숨겨져 있으며, 마지막 글자를 열면 해당 단어를 획득합니다.
 - 셀을 클릭하여 한 번에 하나의 글자를 공개하고 숨겨진 단어를 찾으세요.  
-- NPC보다 많은 단어를 찾으면 이깁니다.  
+- 많은 단어를 찾으면 이깁니다.  
 - 격자에 적힌 숫자는 격자 주변에 있는 글자의 수입니다.  
 - 아래에서 원하는 워드풀을 선택해 게임을 시작하세요.  
 - 옥스퍼드 사전의 단어 난이도 수준을 사용하여 흥미로운 도전을 제공합니다.  
@@ -26,7 +26,7 @@ Wordmine is a game where you explore a grid to find hidden words!
 - This is a word search with a minesweeper twist.
 - Words are hidden horizontally, vertically, or diagonally, and you earn the word by revealing its final letter.  
 - Click a cell to reveal one letter at a time and find the hidden words.
-- Your goal is to find more words than the computer.  
+- Your goal is to find more words.  
 - The numbers in the grid show how many letters are adjacent to that cell.  
 - Choose a word pool below to begin the game.  
 - Uses the Oxford dictionary’s word difficulty levels for an engaging challenge.
@@ -34,6 +34,8 @@ Wordmine is a game where you explore a grid to find hidden words!
 
 #워퍼즈와 다른 규칙 / Rules Different from Worpuzz
 
+- 두 사용자가 교대로 클릭하면서  단어의 마지막 글자를 찾으면 점수를 얻습니다.  
+- Two players take turns clicking cells — whoever reveals the last letter of a word scores it.
 - 숫자 힌트를 이용해서 숨겨진 단어를 찾으세요.  
 - Look at the number hints and click the grid to find the words.  
 
