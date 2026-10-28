@@ -121,6 +121,13 @@ color: #FF9494; /* 포인트 핑크 */
 margin-bottom: 20px;
 }
 
+h2.one-line {
+  font-size: clamp(1.15rem, 3.35vw, 1.7rem);
+  font-weight: normal;
+  line-height: 1.5;
+  margin: 8px auto 16px;
+}
+
 .redirect-message {
 background-color: #FF9494;
 color: white;
@@ -298,8 +305,19 @@ display: none;
 
 <h1 class="lang-ko">마인워더</h1>
 <h1 class="lang-en">MineWorder</h1>
-  <div class="description">
-  <div id="korean-description" class="lang-ko">
+
+<h2 class="lang-ko one-line">
+  지뢰찾기처럼 숫자 힌트를 보고 격자 뒤에 숨은 단어를 찾는 워드서치 게임입니다.
+</h2>
+<h2 class="lang-en one-line">
+  A Minesweeper-style word search<br>
+Use number hints to find the words hidden behind the grid.
+</h2>
+
+<div class="description">
+  <details class="rules rules-ko" lang="ko">
+    <summary>게임 방법과 규칙</summary>
+    <p>
     워퍼즈 마인워더는 지뢰찾기를 개조한 워드서치 게임입니다.<br>
     워퍼즈 마인워더의 격자 크기에는 세 종류가 있으며, 마인워더는 영어는 가로12*세로12이고,  한글은 가로10*세로10가  있는 중간사이즈입니다.<br>
     지뢰를 밟으면 게임이  종료되는 지뢰찾기와 달리   마인워더의 격자 뒤에는 단어가 가로, 세로, 대각선 방향으로 숨겨져 있습니다.<br>
@@ -307,9 +325,12 @@ display: none;
    두 사용자가 교대로 클릭해서 단어의 마지막 글자를 열면 해당 단어를 획득합니다. <br>
     아래에서 원하는 워드풀을 선택해 게임을 시작하세요.<br>
     모바일에서 게임할 때는 화면이 작아서 격자가 들어가지 않습니다. 마인워더 미니를 이용하세요. 아래 버튼을 아무거나 누르면 이동합니다.
-    
-    </div>
-  <div id="english-description" class="lang-en">
+    </p>
+  </details>
+
+  <details class="rules rules-en" lang="en">
+    <summary>How to Play &amp; Rules</summary>
+    <p>
    Worpuzz MineWorder is a word search game with a Minesweeper twist.<br>
    Worpuzz MineWorder comes in three grid sizes. 
    Worpuzz MineWorder is the medium size: 12×12 for English and 10×10 for Korean.<br>
@@ -318,7 +339,12 @@ display: none;
    Two players take turns clicking, and you earn a word by revealing its final letter.<br>
    Choose a word pool below to start the game.<br>
    On mobile, the screen is too small to fit the grid. Please use MineWorder Mini. Tap any button below to go there.<br>
+    </p>
+  </details>
 </div>
+
+  
+ </div>
  </div>
        
   <div class="row-container">
